@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 다음과 같이 promise함수를 만들 수 있다.
+        var promiseFunc = new Promise(function (resolve, reject) {
+            // resolve();  성공 함수(then 실행)
+            // reject();   실패 함수(catch 실행)
+
+            setTimeout(function () {
+                resolve('success');
+            }, 1000);
+
+        });
+
+        promiseFunc.then(function (str) {
+            console.log(str);
+        }).catch(function () {
+            console.log('failed');
+        })
+        // promiseFunc이 성공일 경우 then의 함수를 실행한다.
+        // 위를 보니 fetch함수가 promise함수인 것 같다.
+        // .catch는 실패할 경우 실행되는 함수다.
+        // .finally는 성공하는 실패하든 promiseFunc함수가 종료되면 실행한다.
+
+        // Promise의 3가지 상태
+        // 성공 : resolved (나는 fulfilled라고 나온다.)
+        // 판정 대기 : pending (resolve나 reject 실행 안 됨)
+        // 실패 : rejected 
+    </script>
+</body>
+
+</html>

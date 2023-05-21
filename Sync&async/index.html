@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 실행 결과 1 -> 3 -> 2
+        // console.log(1);
+        // setTimeout(() => { console.log(2) }, 1000);
+        // console.log(3);
+        // 위 코드에서 setTimeout함수는 따로 빼두고 실행한다.
+
+        /*
+        setTimeout, eventListener, ajax같은 함수들은 비동기식 처리하는 함수들로
+        브라우저에서 Web API에 따로 저장한 뒤 실행되어야 할 때 실행되도록 한다.
+        */
+
+        /// 콜백함수를 이용한 함수 디자인 ///
+        // function foo1() {
+        //     setTimeout(() => { console.log(10) }, 1000);
+        // }
+
+        // function foo2() {
+        //     console.log(20);
+        // }
+
+        // foo1();
+        // foo2();
+        // foo1 함수에 처리가 오래 걸리는 연산들이 있다면 foo1 함수를 실패하고 foo2로 넘어갈 수 있다.
+        // 그래서 순차적으로 실행하고 싶다면 다음과 같이 콜백함수를 디자인한다.
+        // function foo1(func) {
+        //     console.log(10);
+        //     func();
+        // }
+
+        // function foo2() {
+        //     console.log(20);
+        // }
+        // foo1(foo2);
+
+        // 하지만 다음과 같은 경우를 보면
+        // foo1(function () {
+        //     foo2(function () {
+        //         foo3(function () {
+
+        //         })
+        //     })
+        // })
+        // 이렇게 콜백함수를 중첩해서 쓰게 되면 코드 가독성이 안 좋다. (옆으로 길어짐)
+        // 이런 경우 Promise패턴을 이용한다.
+        // foo1().then(function () {
+        //     foo2();
+        // }).then(function () {
+        //     foo3();
+        // })
+    </script>
+</body>
+
+</html>

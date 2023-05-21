@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 이렇게 쓰면 불편하다.
+        // let arr = [2, 3, 4];
+        // let a = arr[0];
+        // let b = arr[1];
+        // let c = arr[2];
+
+        // 따라서 다음과 같이 쓰자.
+        // let [a, b, c] = [2, 3, 4];
+
+        // 다음과 같이 쓰면 C가 undefined가 됨.
+        // let [a, b, c] = [2, 3];
+        // default 변수를 써보자.
+        // let [a, b, c = 10] = [2, 3];
+
+        // 아래 obj의 데이터를 변수에 값을 전달해주려면?
+        // let obj = { name: 'Kim', age: 30 };
+        // let name = obj.name;
+        // let age = obj.age;
+        // 위와 같이 써도 불편하다.
+
+        // 아래는 간편하지만 Object의 key값과 변수명이 동일해야한다.
+        // let { name, age } = { name: 'Kim', age: 30 };
+        // 이것도 default값 사용 가능.
+        // let { name, age = 20 } = { name: 'Kim', age: 30 };
+        // 변수명을 Key값과 다르게 하고 싶다면?
+        // let { name: newName, age = 20 } = { name: 'Kim', age: 30 };
+
+        // 위의 Destucturing을 반대로도 사용 가능함 (변수들을 Object에 값 전달.)
+        // let [name, age] = ['Kim', 30];
+        // let obj = { name, age };
+
+        // 함수 파라미터에서도 Destructuring 가능
+        // let obj = { name: 'Kim', age: 30 };
+
+        // function foo({ name, age }) {
+        //     console.log(name + ' ' + age);
+        // }
+
+        // foo(obj);
+
+        // function bar([name, age]) {
+        //     console.log(name + ' ' + age);
+        // }
+
+        // bar(['good', 10]);
+
+        // 다음과 같이도 사용 가능
+        let bodyInfo = {
+            body: {
+                height: 190,
+                weight: 70
+            },
+            size: ["상의 Large", "바지 30인치"]
+        };
+
+        let { body: { height, weight }, size: [상의, 하의] } = bodyInfo;
+    </script>
+</body>
+
+</html>
