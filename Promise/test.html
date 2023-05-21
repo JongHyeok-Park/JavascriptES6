@@ -1,0 +1,27 @@
+<body>
+    <img id="test"
+        src="https://images.unsplash.com/photo-1683009427037-c5afc2b8134d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">
+    <script>
+
+        let loadCheck = new Promise(function (resolve, reject) {
+            let target = document.getElementById('test');
+            target.addEventListener('load', function () {
+                resolve();
+            })
+            target.addEventListener('error', function () {
+                reject();
+            })
+        }).then(function () {
+            console.log('Successed');
+        }).catch(function () {
+            console.log('failed')
+        })
+
+
+        fetch('https://codingapple1.github.io/hello2.txt')
+            .then((result) => { result.text() })
+            .then(data => { console.log(data) })
+            .catch((error) => { console.log(error) });
+
+    </script>
+</body>

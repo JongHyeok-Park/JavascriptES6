@@ -1,0 +1,22 @@
+<body>
+    <button id="test">버튼</button>
+
+    <script>
+        let btn = document.getElementById('test');
+        async function flag() {
+            let pro = new Promise(function (resolve, reject) {
+                btn.addEventListener('click', function () {
+                    resolve('success');
+                })
+            })
+            try {
+                let result = await pro;
+                console.log(result);
+            } catch {
+                console.log('Error Occured');
+            }
+
+        }
+        flag();
+    </script>
+</body>

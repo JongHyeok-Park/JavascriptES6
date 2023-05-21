@@ -1,0 +1,41 @@
+<body>
+    <script>
+        // async를 사용하여 Promise 사용 가능
+        // async function sum() {
+        //     // return 1 + 1;
+        //     return Promise.reject('fail')  // 함수 실패 표현
+        // }
+
+        // sum().then(function (result) {
+        //     console.log(result);
+        // }).catch(function () {
+        //     console.log('failed');
+        // })
+
+        async function sum() {
+            let pro = new Promise(function (resolve, reject) {
+                let calc = 1 + 1;
+                // resolve('success');
+                reject('fail');
+            });
+            // pro.then(function () {
+            //     console.log('success');
+            // })
+
+            // 예외처리 (에러가 발생하면 다음에 실행되어야 할 아래 라인들이 실행되지 않고 멈춤.
+            //           그래서 예외처리를 해서 에러 상황을 다룸)
+            try {
+                // .then 대신에 아래와 같이도 사용 가능
+                let result = await pro;
+                console.log(result);
+            } catch {
+                console.log('Error alert');
+            }
+
+        }
+
+        sum();
+
+
+    </script>
+</body>
