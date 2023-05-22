@@ -3,20 +3,26 @@
 
     <script>
         let btn = document.getElementById('test');
-        async function flag() {
-            let pro = new Promise(function (resolve, reject) {
-                btn.addEventListener('click', function () {
-                    resolve('success');
-                })
+
+        let pro = new Promise(function (resolve, reject) {
+            btn.addEventListener('click', function () {
+                resolve('success');
             })
+        })
+
+        async function buttonCheck() {
             try {
                 let result = await pro;
                 console.log(result);
             } catch {
                 console.log('Error Occured');
             }
-
         }
-        flag();
+
+        buttonCheck();
+
+        function hello(name, age) {
+            return name + age;
+        }
     </script>
 </body>
